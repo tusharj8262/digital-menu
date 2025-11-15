@@ -63,13 +63,12 @@ export async function PATCH(
 }
 
 // DELETE dish
-export async function DELETE(
-  request: Request,
-  context: { params: { id: string } }
-) {
+// DELETE dish
+export async function DELETE(req: Request, context: any) {
   try {
     const { id } = context.params;
 
+    // Check if dish exists
     const dish = await prisma.dish.findUnique({
       where: { id }
     });
@@ -81,11 +80,13 @@ export async function DELETE(
       );
     }
 
+    // Delete dish
     await prisma.dish.delete({
       where: { id }
     });
 
     return NextResponse.json({ success: true });
+
   } catch (error) {
     console.error('Error deleting dish:', error);
     return NextResponse.json(
@@ -94,3 +95,4 @@ export async function DELETE(
     );
   }
 }
+
