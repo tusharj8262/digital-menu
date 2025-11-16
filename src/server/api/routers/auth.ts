@@ -23,7 +23,7 @@ export const authRouter = createTRPCRouter({
         },
       });
 
-      console.log("OTP:", otp);
+       //console.log("OTP:", otp);
 
       return { success: true };
     }),
