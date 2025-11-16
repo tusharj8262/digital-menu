@@ -17,9 +17,9 @@ export default function AdminLogin() {
 
   // --- API CALLS ---
   const sendOtp = api.auth.sendOtp.useMutation({
-    onSuccess: () => {
+    onSuccess: (data) => {
       setStep("otp");  
-      alert("OTP sent on console! (dev mode)");
+      alert(`Your OTP is: ${data.otp}`);
     },
   });
 

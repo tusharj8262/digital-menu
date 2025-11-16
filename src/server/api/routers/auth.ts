@@ -25,7 +25,8 @@ export const authRouter = createTRPCRouter({
 
        //console.log("OTP:", otp);
 
-      return { success: true };
+      return { success: true, otp };
+
     }),
 
   verifyOtp: publicProcedure
